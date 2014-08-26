@@ -3,6 +3,7 @@
 
 #needs sed for upating  /etc/yum.repos.d/CentOS-Base.repo
 
+
 curl -O http://yum.postgresql.org/9.2/redhat/rhel-6-x86_64/pgdg-centos92-9.2-6.noarch.rpm
 rpm -ivh pgdg-centos92-9.2-6.noarch.rpm
 
