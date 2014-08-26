@@ -28,6 +28,7 @@ service postgresql-9.2 restart
 #get sde install from private s3 bucket
 #install
 #provision
+#setup with python?
 #get backup from s3 bucket
 #add appropaite users
 #restore
