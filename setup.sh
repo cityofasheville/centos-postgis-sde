@@ -13,15 +13,16 @@ service postgresql-9.2 initdb
 service postgresql-9.2 start
 chkconfig postgresql-9.2 on
 
-#sed for updating /var/lib/pgsql/9.2/data/pg_hba.conf  allow all connections
+#sed for updating /var/lib/pgsql/9.2/data/pg_hba.conf  allow local connections
 
 service postgresql-9.2 restart
 
-CREATE EXTENSION postgis;
-CREATE EXTENSION postgis_topology;
+psql -U postgres -c "CREATE DATABASE template_postgis"
+
+psql -U postgres -d template_postgis -c "CREATE EXTENSION postgis;"
+psql -U postgres -d template_postgis -c "CREATE EXTENSION postgis_topology;"
 
 service postgresql-9.2 restart
-
 
 #todo's
 #get sde install from private s3 bucket
@@ -31,3 +32,5 @@ service postgresql-9.2 restart
 #add appropaite users
 #restore
 
+
+#sed for updating /var/lib/pgsql/9.2/data/pg_hba.conf  local connections md5
